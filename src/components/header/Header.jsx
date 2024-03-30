@@ -2,6 +2,7 @@ import { GoClockFill } from "react-icons/go";
 import { MdOutlineFavoriteBorder} from "react-icons/md";
 import { TiShoppingCart } from "react-icons/ti";
 import { images } from "../../modules/images";
+import { Link } from "react-router-dom";
 
 
 function Header() {
@@ -14,26 +15,23 @@ function Header() {
         <div className="header__center">
           <nav className="header__navigation left">
             <ul className="menu">
-              <li className="current-menu-item menu-item-has-children"><a href="index.html">Home</a><span className="sub-toggle"><i className="fa fa-angle-down"></i></span>
+              <li className="current-menu-item menu-item-has-children">
+                <Link to='/'>Home</Link>
               </li>
-              <li className="menu-item-has-children"><a href="shop.html">Shop</a><span className="sub-toggle"><i className="fa fa-angle-down"></i></span>
+              <li className="menu-item-has-children">
+                <Link to='/shop'>Shop</Link>
               </li>
             </ul>
           </nav>
           <div className="header__logo">
-            <a className="ps-logo" href="index.html">
+            <Link to='/' className="ps-logo">
               <img src={images.logo} alt='logo'></img>
-              </a>
+            </Link>
           </div>
           <nav className="header__navigation right">
             <ul className="menu">
-              <li className="current-menu-item menu-item-has-children"><a href="about-us.html">Pages</a><span className="sub-toggle"><i className="fa fa-angle-down"></i></span>
-                <ul className="sub-menu">
-                  <li><a href="about-us.html">About</a>
-                  </li>
-                  <li><a href="whishlist.html">Whishlist</a>
-                  </li>
-                </ul>
+              <li className="current-menu-item menu-item-has-children">
+                <Link to={'/about'}>About</Link>
               </li>
             </ul>
           </nav>

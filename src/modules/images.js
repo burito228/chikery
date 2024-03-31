@@ -17,6 +17,14 @@ import hero from '../img/hero/shop-hero.png'
 import about from '../img/homepage/home-1/home-about.png'
 import sign from '../img/homepage/home-1/signature.png'
 import firstproduct from '../img/product/1.png'
+import coockerAbout from '../img/homepage/home-3/home-about.png'
+import bestServicesLeft from '../img/homepage/home-6/instagram/1.jpg'
+import bestServicesRight from '../img/section/book-your-tables/bg.jpg'
+import goodBaker from '../img/homepage/home-3/good-baker.png'
+import hero1 from '../img/users/bakers/1.png'
+import hero2 from '../img/users/bakers/2.png'
+import hero3 from '../img/users/bakers/3.png'
+
 
 
 export const images = {
@@ -39,4 +47,11 @@ export const images = {
     about,
     sign,
     firstproduct,
+    coockerAbout,
+    bestServicesLeft,
+    bestServicesRight,
+    hero1,
+    hero2,
+    hero3,
+    goodBaker,
   };

@@ -2236,7 +2236,8 @@ textarea.form-control {
 
 .pagination {
   margin: 0;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
   position: relative;
   vertical-align: top;
   font-size: 0; }
@@ -2306,7 +2307,10 @@ textarea.form-control {
   padding: 10px 0;
   background-color: transparent; }
   .ps-breadcrumb .breadcrumb {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
     margin: 0;
     padding: 0;
     background-color: transparent; }
@@ -2315,11 +2319,7 @@ textarea.form-control {
       font-size: 16px;
       line-height: 20px;
       color: #000; }
-      .ps-breadcrumb .breadcrumb li:before {
-        content: "\f105";
-        font-family: FontAwesome;
-        margin: 0 5px;
-        color: #ce873a; }
+      
       .ps-breadcrumb .breadcrumb li:first-child {
         padding-left: 0; }
         .ps-breadcrumb .breadcrumb li:first-child:before {
@@ -5045,6 +5045,7 @@ textarea.form-control {
 
 .ps-hero {
   position: relative;
+  background: url('./img/hero/shop-hero.png');
   z-index: 10;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6465,7 +6466,7 @@ textarea.form-control {
       padding: 60px 0; } }
 
 .ps-home-about {
-  background: url("./img/bg/home-about.jpg");
+  background: url("./img/bg/home-about.jpg") no-repeat;
   padding: 115px 0 110px; }
   .ps-home-about .ps-section__content {
     text-align: center; }
@@ -6540,11 +6541,23 @@ textarea.form-control {
       text-transform: uppercase;
       color: #ffffff;
       line-height: 1.6em; }
+        .ps-home-best-services .ps-section__left {
+          max-width: 40%;
+          background: url('./img/section/book-your-tables/bg.jpg');
+        }
+        .ps-home-best-services .ps-section__right {
+          max-width: 60%;
+          background: url('./img/bg/home/home-award.jpg') no-repeat;
+        } 
   @media (max-width: 1680px) {
     .ps-home-best-services .ps-section__left {
-      max-width: 40%; }
+      max-width: 40%;
+      background: url('./img/section/book-your-tables/bg.jpg');
+    }
     .ps-home-best-services .ps-section__right {
-      max-width: 60%; } }
+      max-width: 60%;
+      background: url('./img/bg/home/home-award.jpg') no-repeat;
+    } }
   @media (max-width: 1366px) {
     .ps-home-best-services .ps-section__left {
       max-width: 30%; }
@@ -6870,6 +6883,7 @@ textarea.form-control {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    align-items: center;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -ms-flex-flow: row nowrap;
@@ -7558,7 +7572,7 @@ textarea.form-control {
 #homepage-2 .ps-home-banner {
   position: relative;
   z-index: 10;
-  height: 100vh;
+  height: 65vh;
   background: url("./img/bg/home/home-banner.jpg");
 }
 
@@ -8742,11 +8756,28 @@ textarea.form-control {
     .header--1 {
       display: none; } }
 
+.header__sticky{
+  position: unset !important; 
+}
+.unactive-position{
+  position: fixed;
+}
+.header__sticky header{
+  background-color: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 .header--default {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 10000;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;

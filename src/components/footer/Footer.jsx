@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { images } from "../../modules/images";
 
 function Footer(){
@@ -18,7 +19,7 @@ function Footer(){
                     </form>
                     </div>
                     <div className="ps-footer__center">
-                    <div className="ps-site-info"><a className="ps-logo" href="index.html"><img src={images.logo} alt=''></img></a>
+                    <div className="ps-site-info"><Link className="ps-logo" to='/'><img src={images.logo} alt=''></img></Link>
                         <p>004 Riley Street, Surry Hills 2050 Sydney, Australia</p>
 
                     </div>

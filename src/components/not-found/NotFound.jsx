@@ -1,9 +1,8 @@
+import BreadCrumbs from "../breadcrumbs/BreadCrumbs"
 
 const NotFound = () => {
   return (
-    <div>
-      
-    </div>
+    <BreadCrumbs />
   )
 }
 

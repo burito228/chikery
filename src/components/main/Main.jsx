@@ -5,6 +5,7 @@ import { GiPretzel } from "react-icons/gi";
 import { images } from '../../modules/images';
 import SimpleSlider from '../../utils/Slider'
 import Product from "../product/Product";
+import { Link } from "react-router-dom";
 
 
 const Main = () => {
@@ -60,7 +61,7 @@ const Main = () => {
                     </div>
                     </div>
                 </div>
-                <div className="ps-section__footer text-center"><a className="ps-btn ps-btn--outline" href="shop.html">All Products</a></div>
+                <div className="ps-section__footer text-center"><Link to='shop' className="ps-btn ps-btn--outline">All Products</Link></div>
                 </div>
             </div>
             <div className="ps-section ps-home-about bg--cover" data-background={images.homeabout}>

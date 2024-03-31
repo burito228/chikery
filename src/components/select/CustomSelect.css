@@ -1,0 +1,8 @@
+.shop__select{
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: relative;
+    z-index: 100000;
+}

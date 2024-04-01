@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/react-gh-pages/static/css/main.42d38e8b.css",
+    "main.js": "/react-gh-pages/static/js/main.f07c92cb.js",
+    "static/media/home-award.jpg": "/react-gh-pages/static/media/home-award.46463aa07c08cbf7f2db.jpg",
+    "static/media/bg.jpg": "/react-gh-pages/static/media/bg.c53ff923e341d43805ad.jpg",
+    "static/media/CooperBlack.svg": "/react-gh-pages/static/media/CooperBlack.2ee988090a07be4a56af.svg",
+    "static/media/1.png": "/react-gh-pages/static/media/1.8d4eec086b2174e0a572.png",
+    "static/media/2.png": "/react-gh-pages/static/media/2.48328d0a41968ecea7f4.png",
+    "static/media/shop-hero.png": "/react-gh-pages/static/media/shop-hero.4ee17601d2deacaf57de.png",
+    "static/media/1.jpg": "/react-gh-pages/static/media/1.f5d85ef483ecc5fe8940.jpg",
+    "static/media/good-baker.png": "/react-gh-pages/static/media/good-baker.e855180c575bcc68cd6f.png",
+    "static/media/CooperBlackd41d.eot": "/react-gh-pages/static/media/CooperBlackd41d.c86c53a9993c2b3bbe2d.eot",
+    "static/media/CooperBlack.ttf": "/react-gh-pages/static/media/CooperBlack.dbe0cbaa54b6ad6fa396.ttf",
+    "static/media/home-about.png": "/react-gh-pages/static/media/home-about.cd15d4aecfe15f3a4517.png",
+    "static/media/CooperBlack.woff": "/react-gh-pages/static/media/CooperBlack.49e06502c840950b3267.woff",
+    "static/media/home-about.jpg": "/react-gh-pages/static/media/home-about.b519e6c27dc01d81fdac.jpg",
+    "static/media/3.png": "/react-gh-pages/static/media/3.2649d18d9dde64eb0252.png",
+    "static/media/home-banner.jpg": "/react-gh-pages/static/media/home-banner.9c50786a4392e5b7f432.jpg",
+    "static/media/testimonials.jpg": "/react-gh-pages/static/media/testimonials.28ac358270957612455b.jpg",
+    "static/media/logo.png": "/react-gh-pages/static/media/logo.29e055659c8c09a4303f.png",
+    "static/media/badge.svg": "/react-gh-pages/static/media/badge.d20b5d9a561bef4671de.svg",
+    "static/media/slick.svg": "/react-gh-pages/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/react-gh-pages/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/react-gh-pages/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/react-gh-pages/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/react-gh-pages/index.html",
+    "main.42d38e8b.css.map": "/react-gh-pages/static/css/main.42d38e8b.css.map",
+    "main.f07c92cb.js.map": "/react-gh-pages/static/js/main.f07c92cb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.42d38e8b.css",
+    "static/js/main.f07c92cb.js"
+  ]
+}

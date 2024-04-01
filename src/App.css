@@ -8759,6 +8759,10 @@ textarea.form-control {
 .header__sticky{
   position: unset !important; 
 }
+.sticky__active{
+  position: relative;
+  z-index: 999;
+}
 .unactive-position{
   position: fixed;
 }

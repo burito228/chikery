@@ -73,7 +73,7 @@ function Header() {
           </div>
         </div>
       </header>
-      <Sticky enabled={true}>
+      <Sticky enabled={true} activeClass="sticky__active">
         <header className="header header--default header--sticky" data-sticky="true">
         <div className="header__left">
           <p><GoClockFill /> 08:00 am - 08:30 pm</p>

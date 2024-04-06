@@ -4,6 +4,7 @@ import BreadCrumbs from "../breadcrumbs/BreadCrumbs"
 import Product from "../product/Product"
 import CustomSelect from "../select/CustomSelect";
 import PriceRangeFilter from "../pricefilter/PriceRangeFilter";
+import ProductList from "../productList/ProductList";
 
 const Shop = () => {
 
@@ -73,16 +74,7 @@ const Shop = () => {
               <p>Show 1-12 of 35 result</p>
               <CustomSelect />
             </div>
-            <div className="ps-product-box">
-              <div className="row">
-                <Product />
-                <Product />
-                <Product />
-                <Product />
-                <Product />
-                <Product />
-              </div>
-            </div>
+            <ProductList />
             <div className="ps-pagination">
               <ul className="pagination">
                 <li><a href="#"><IoIosArrowBack /></a></li>

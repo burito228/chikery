@@ -4139,6 +4139,7 @@ textarea.form-control {
 .ps-product--mini-cart {
   display: -webkit-box;
   display: -ms-flexbox;
+  width: 100%;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -4163,9 +4164,11 @@ textarea.form-control {
       cursor: pointer; }
       .ps-product--mini-cart .ps-product__content .ps-btn--close:before, .ps-product--mini-cart .ps-product__content .ps-btn--close:after {
         width: 1px;
+        cursor: pointer;
         background-color: #000000; }
       .ps-product--mini-cart .ps-product__content .ps-btn--close:hover:before, .ps-product--mini-cart .ps-product__content .ps-btn--close:hover:after {
-        background-color: #FF3C35; }
+        background-color: #FF3C35;
+        cursor: pointer; }
     .ps-product--mini-cart .ps-product__content p {
       margin-bottom: 0;
       font-size: 16px;
@@ -5211,9 +5214,11 @@ textarea.form-control {
   width: 40px;
   height: 40px;
   vertical-align: middle;
+  cursor: pointer;
   border: 1px solid #ececec; }
   .ps-table--shopping-cart .ps-btn--close:before, .ps-table--shopping-cart .ps-btn--close:after {
     width: 1px;
+    cursor: pointer;
     background-color: #2c2c2c; }
   .ps-table--shopping-cart .ps-btn--close:hover {
     background-color: #ce873a;

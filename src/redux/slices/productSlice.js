@@ -4,6 +4,7 @@ import productSettings from "../../utils/productSettings";
 
 const initialState = {
     products: [],
+    cart: [],
     isLoading: false,
 }
 
@@ -25,13 +26,16 @@ const productsSlice = createSlice({
     initialState,
     reducers: {
         setAddProduct: (state, action) => {
-            state.products.push(action.payload)
-        },
-        setDeleteProduct: (state, action) => {
-            return{
-                ...state,
-                products: state.products.filter((product) => product.id !== action.payload)
-            }
+            state.products.forEach((product) => {
+                if(product.id === action.payload){
+                    const index = state.cart.findIndex(cartProduct => cartProduct.id === product.id);
+                    if (index !== -1) {
+                        state.cart[index].quantity += 1;
+                    } else {
+                        state.cart.push({...product, quantity: 1});
+                    }
+                }
+            })
         },
         setToggleFavorite: (state, action) => {
             state.products.forEach((product) => {
@@ -40,6 +44,12 @@ const productsSlice = createSlice({
                 }
             })
         },
+        setDeleteProduct: (state, action) => {
+            return{
+                ...state,
+                cart: state.cart.filter((product) => product.id !== action.payload)
+            }
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -65,6 +75,7 @@ const productsSlice = createSlice({
 export const { setAddProduct, setDeleteProduct, setToggleFavorite } = productsSlice.actions
 
 export const selectProducts = (state) => state.products.products
-export const selectIsLoading = (state) => state.product.isLoading
+export const selectIsLoading = (state) => state.products.isLoading
+export const selectCart = (state) => state.products.cart
 
 export default productsSlice.reducer

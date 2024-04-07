@@ -1,10 +1,15 @@
 import { MdOutlineFavoriteBorder} from "react-icons/md";
-import { selectProducts, setAddProduct, setDeleteProduct, setToggleFavorite } from "../../redux/slices/productSlice";
-import { useSelector } from "react-redux";
+import { selectProducts, setAddProduct, setToggleFavorite } from "../../redux/slices/productSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 const Product = () => {
 
     const products = useSelector(selectProducts)
+    const dispatch = useDispatch()
+
+    const handleAddProduct = (id) => {
+        dispatch(setAddProduct(id))
+    }
 
   return (
     <>
@@ -16,7 +21,7 @@ const Product = () => {
                         <a className="ps-product__overlay" href="product.html"></a>
                         {product.sales ? (
                             <span className="ps-badge ps-badge--sale">
-                                <i>{product.sales}</i>
+                                <i>{product.sales}%</i>
                             </span>
                         ): <></>}
                     </div>
@@ -30,15 +35,16 @@ const Product = () => {
                             </p>
                             {product.sales ? (
                                 <span className="ps-product__price sale">
-                                    <del>${Math.floor(product.price - product.price * (product.sales / 100))}</del>
-                                    ${product.price}
+                                    <del>${product.price}</del>
+                                    ${product.salesPrice}
                                 </span>
                             ) : <span className="ps-product__price">
                                     ${product.price}
                                 </span>
                             }
                         </div>
-                        <div className="ps-product__shopping"><button type="button" className="ps-btn ps-product__add-to-cart">Add to cart</button>
+                        <div className="ps-product__shopping">
+                            <button type="button" className="ps-btn ps-product__add-to-cart" onClick={() => handleAddProduct(product.id)}>Add to cart</button>
                             <div className="ps-product__actions">
                                 <button type="button"><MdOutlineFavoriteBorder className="wish-btn"/></button>
                             </div>

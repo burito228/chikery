@@ -1,6 +1,26 @@
 import BreadCrumbs from "../breadcrumbs/BreadCrumbs"
+import { useSelector, useDispatch } from 'react-redux'
+import { selectCart, setDeleteProduct } from "../../redux/slices/productSlice"
+import { Link } from "react-router-dom"
+import productSettings from "../../utils/productSettings"
 
 const Cart = () => {
+
+  const cart = useSelector(selectCart)
+  const dispatch = useDispatch()
+
+  const handleDeleteProduct = (id) => {
+    dispatch(setDeleteProduct(id))
+  }
+
+   const handleChangeCountToHigher = (quantity) => {
+      cart.filter((product) => product.id !== )
+  }
+
+  const handleChangeCountToLower = (quantity) => {
+    return --quantity
+  }
+
   return (
     <>
       <BreadCrumbs />
@@ -19,30 +39,36 @@ const Cart = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>
-                      <div class="ps-product--cart">
-                        <div class="ps-product__thumbnail"><img src="img/product/3.png" alt=""/><a class="ps-product__overlay" href="product-detail.html"></a></div>
-                        <div class="ps-product__content"><a class="ps-product__title" href="product-detail.html">Jean Woman Summer</a></div>
-                      </div>
-                    </td>
-                    <td>$12.00</td>
-                    <td>
-                      <div class="form-group--number">
-                        <button class="up"></button>
-                        <button class="down"></button>
-                        <input class="form-control" type="text" placeholder="1" value="1" />
-                      </div>
-                    </td>
-                    <td class="total">$12.00</td>
-                    <td class="ps-table__actions"><a class="ps-btn--close" href="#"></a></td>
-                  </tr>
+                {cart.length === 0 ? (<p style={{textAlign: 'center', marginBottom: '15px'}}>No products available</p>) : (
+                  <>
+                  {cart.map((product) => (
+                    <tr>
+                      <td>
+                        <div class="ps-product--cart">
+                          <div class="ps-product__thumbnail"><img src={product.img} alt=""/><a class="ps-product__overlay" href="product-detail.html"></a></div>
+                          <div class="ps-product__content"><a class="ps-product__title" href="product-detail.html">{product.title}</a></div>
+                        </div>
+                      </td>
+                      <td>${product.salesPrice}</td>
+                      <td>
+                        <div class="form-group--number">
+                          <button class="up" onClick={() => handleChangeCountToHigher(product.quantity)}></button>
+                          <button class="down" onClick={() => handleChangeCountToLower(product.quantity)}></button>
+                          <input class="form-control" type="text" min={1} max={10} value={product.quantity} />
+                        </div>
+                      </td>
+                      <td class="total">${product.quantity * product.salesPrice}</td>
+                      <td class="ps-table__actions"><span onClick={()=> handleDeleteProduct(product.id)} class="ps-btn--close"></span></td>
+                    </tr>
+                  ))}
+                  </>
+                )}
                 </tbody>
               </table>
             </div>
             <div class="ps-section__actions">
               <figure><a class="ps-btn ps-btn--outline" href="#">Clear Shopping Cart</a><a class="ps-btn ps-btn--outline" href="#">Update Shopping Cart</a></figure>
-              <figure><a class="ps-btn" href="#">Continue Shopping</a></figure>
+              <figure><Link class="ps-btn" to='/shop'>Continue Shopping</Link></figure>
             </div>
             <div class="ps-section__footer">
               <figure class="ps-shopping-cart__total">

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { GoClockFill } from "react-icons/go";
 import { MdOutlineFavoriteBorder} from "react-icons/md";
-import { TiShoppingCart } from "react-icons/ti";
 import { images } from "../../modules/images";
 import Sticky from 'react-stickynode';
+import MiniCart from "../miniCart/MiniCart";
 
 
 function Header() {
@@ -38,29 +38,9 @@ function Header() {
           </nav>
         </div>
         <div className="header__right">
-          <div className="header__actions"><a href="whishlist.html"><MdOutlineFavoriteBorder /></a>
-            <div className="ps-cart--mini"><a className="ps-cart__toggle" href="#"><TiShoppingCart /><span><i>2</i></span></a>
-              <div className="ps-cart__content">
-                <div className="ps-cart__items">
-                  <div className="ps-product--mini-cart">
-                    <div className="ps-product__thumbnail"><a href="#"><img src="" alt='' /></a></div>
-                    <div className="ps-product__content"><span className="ps-btn--close"></span><a className="ps-product__title" href="product.html">Jean Woman Summer</a>
-                      <p><strong>Quantity: 1</strong></p><small>$12.00</small>
-                    </div>
-                  </div>
-                  <div className="ps-product--mini-cart">
-                    <div className="ps-product__thumbnail"><a href="#"><img src="" alt='' /></a></div>
-                    <div className="ps-product__content"><span className="ps-btn--close"></span><a className="ps-product__title" href="product.html">Jean Woman Summer</a>
-                      <p><strong>Quantity: 1</strong></p><small>$12.00</small>
-                    </div>
-                  </div>
-                </div>
-                <div className="ps-cart__footer">
-                  <h3>Sub Total:<strong>$48.00</strong></h3>
-                  <figure><Link className="ps-btn" to='cart'>View Cart</Link></figure>
-                </div>
-              </div>
-            </div>
+          <div className="header__actions">
+            <a href="whishlist.html"><MdOutlineFavoriteBorder /></a>
+            <MiniCart />
           </div>
         </div>
       </header>
@@ -103,29 +83,9 @@ function Header() {
           </nav>
         </div>
         <div className="header__right">
-          <div className="header__actions"><a href="whishlist.html"><MdOutlineFavoriteBorder /></a>
-            <div className="ps-cart--mini"><a className="ps-cart__toggle" href="#"><TiShoppingCart /><span><i>2</i></span></a>
-              <div className="ps-cart__content">
-                <div className="ps-cart__items">
-                  <div className="ps-product--mini-cart">
-                    <div className="ps-product__thumbnail"><a href="#"><img src="" alt='' /></a></div>
-                    <div className="ps-product__content"><span className="ps-btn--close"></span><a className="ps-product__title" href="product.html">Jean Woman Summer</a>
-                      <p><strong>Quantity: 1</strong></p><small>$12.00</small>
-                    </div>
-                  </div>
-                  <div className="ps-product--mini-cart">
-                    <div className="ps-product__thumbnail"><a href="#"><img src="" alt='' /></a></div>
-                    <div className="ps-product__content"><span className="ps-btn--close"></span><a className="ps-product__title" href="product.html">Jean Woman Summer</a>
-                      <p><strong>Quantity: 1</strong></p><small>$12.00</small>
-                    </div>
-                  </div>
-                </div>
-                <div className="ps-cart__footer">
-                  <h3>Sub Total:<strong>$48.00</strong></h3>
-                  <figure><Link className="ps-btn" to='cart'>View Cart</Link></figure>
-                </div>
-              </div>
-            </div>
+          <div className="header__actions">
+            <a href="whishlist.html"><MdOutlineFavoriteBorder /></a>
+            <MiniCart />
           </div>
         </div>
         </header>

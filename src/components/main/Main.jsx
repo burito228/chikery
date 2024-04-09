@@ -1,5 +1,5 @@
-import { useDispatch } from "react-redux"
 import { useEffect } from "react";
+import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom";
 import { fetchProduct } from "../../redux/slices/productSlice";
 import { RiCake3Line } from "react-icons/ri";
@@ -13,8 +13,8 @@ import Product from "../product/Product";
 
 const Main = () => {
 
+    
     const dispatch = useDispatch()
-
     useEffect(()=> {
         dispatch(fetchProduct('https://660efcb9356b87a55c50a062.mockapi.io/chikery/Product'))
     }, [])

@@ -49,6 +49,16 @@ const productsSlice = createSlice({
                 ...state,
                 cart: state.cart.filter((product) => product.id !== action.payload)
             }
+        },
+        setIncrementQuantity: (state, action) => {
+            state.cart = state.cart.map((product) => {
+               return product.id === action.payload ? {...product, quantity: ++product.quantity} : product
+            })
+        },
+        setDecrementQuantity: (state, action) => {
+            state.cart = state.cart.map((product) => {
+                return product.id === action.payload ? {...product, quantity: product.quantity > 1 ? --product.quantity : 1} : product
+            })
         }
     },
     extraReducers: (builder) => {
@@ -72,7 +82,7 @@ const productsSlice = createSlice({
     }
 })
 
-export const { setAddProduct, setDeleteProduct, setToggleFavorite } = productsSlice.actions
+export const { setAddProduct, setDeleteProduct, setToggleFavorite, setIncrementQuantity, setDecrementQuantity } = productsSlice.actions
 
 export const selectProducts = (state) => state.products.products
 export const selectIsLoading = (state) => state.products.isLoading

@@ -7584,7 +7584,7 @@ textarea.form-control {
 #homepage-2 .ps-home-banner {
   position: relative;
   z-index: 10;
-  height: 65vh;
+  height: 100vh;
   background: url("./img/bg/home/home-banner.jpg");
 }
 

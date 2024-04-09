@@ -1,17 +1,11 @@
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { fetchProduct, selectProducts } from "../../redux/slices/productSlice"
+import { useSelector } from "react-redux"
+import { selectProducts } from "../../redux/slices/productSlice"
 import Product from "../product/Product"
 
 
 const ProductList = () => {
 
     const products = useSelector(selectProducts)
-    const dispatch = useDispatch()
-
-    useEffect(()=> {
-        dispatch(fetchProduct('https://660efcb9356b87a55c50a062.mockapi.io/chikery/Product'))
-    }, [])
 
   return (
     <div className="ps-product-box">

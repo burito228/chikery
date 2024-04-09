@@ -1,3 +1,7 @@
+import { useDispatch } from "react-redux"
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { fetchProduct } from "../../redux/slices/productSlice";
 import { RiCake3Line } from "react-icons/ri";
 import { MdBakeryDining, MdCookie } from "react-icons/md";
 import { LuCakeSlice } from "react-icons/lu";
@@ -5,10 +9,16 @@ import { GiPretzel } from "react-icons/gi";
 import { images } from '../../modules/images';
 import SimpleSlider from '../../utils/Slider'
 import Product from "../product/Product";
-import { Link } from "react-router-dom";
 
 
 const Main = () => {
+
+    const dispatch = useDispatch()
+
+    useEffect(()=> {
+        dispatch(fetchProduct('https://660efcb9356b87a55c50a062.mockapi.io/chikery/Product'))
+    }, [])
+
   return (
     <>
         <div id="homepage-2">

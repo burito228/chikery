@@ -1,10 +1,22 @@
-import BreadCrumbs from "../breadcrumbs/BreadCrumbs"
+import { Link } from "react-router-dom"
+import { IoIosArrowForward } from "react-icons/io";
 import { images } from "../../modules/images"
 
 const About = () => {
   return (
     <div className="ps-page--about">
-      <BreadCrumbs />
+      <div className="ps-hero bg--cover" data-background={images.hero}>
+        <div className="ps-hero__container">
+          <div className="ps-breadcrumb">
+            <ul className="breadcrumb">
+              <li><Link to='/'>Home</Link></li>
+              <IoIosArrowForward />
+              <li>About</li>
+            </ul>
+          </div>
+          <h1 className="ps-hero__heading">About</h1>
+        </div>
+      </div>
       <div className="ps-section ps-home-awards bg--cover" data-background="img/bg/home-2/home-award.jpg">
         <div className="container">
           <div className="ps-section__header">

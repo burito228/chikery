@@ -1,14 +1,22 @@
 import { MdOutlineFavoriteBorder} from "react-icons/md";
-import { selectProducts, setAddProduct, setToggleFavorite } from "../../redux/slices/productSlice";
+import { FaSpinner } from 'react-icons/fa'
+import { selectIsLoading, selectProducts, setAddProduct, setLoadingWithDelay, setLoadingWithoutDelay, setToggleFavorite } from "../../redux/slices/productSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 const Product = () => {
 
     const products = useSelector(selectProducts)
+    let IsLoading = useSelector(selectIsLoading)
     const dispatch = useDispatch()
 
     const handleAddProduct = (id) => {
-        dispatch(setAddProduct(id))
+        dispatch(setLoadingWithoutDelay(true))
+        setTimeout(()=> {
+            dispatch(setAddProduct(id))
+        }, 2000)
+        setTimeout(()=> {
+            dispatch(setLoadingWithDelay(false))
+        }, 2000)
     }
 
   return (
@@ -27,7 +35,7 @@ const Product = () => {
                     </div>
                     <div className="ps-product__content">
                         <div className="ps-product__desc">
-                            <a className="ps-product__title">{product.title}</a>
+                            <h3 className="ps-product__title">{product.title}</h3>
                             <p>
                                 <span>350g</span>
                                 <span>30 Min</span>
@@ -44,7 +52,12 @@ const Product = () => {
                             }
                         </div>
                         <div className="ps-product__shopping">
-                            <button type="button" className="ps-btn ps-product__add-to-cart" onClick={() => handleAddProduct(product.id)}>Add to cart</button>
+                            <button type="button" className="ps-btn ps-product__add-to-cart" onClick={() => handleAddProduct(product.id)} disabled={IsLoading}>
+                                {IsLoading ? (<>
+                                    <span>Adding a product...</span>
+                                    <FaSpinner className="spinner" />
+                                </>) : 'Add to cart'}
+                            </button>
                             <div className="ps-product__actions">
                                 <button type="button"><MdOutlineFavoriteBorder className="wish-btn"/></button>
                             </div>

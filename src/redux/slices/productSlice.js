@@ -37,18 +37,24 @@ const productsSlice = createSlice({
                 }
             })
         },
-        setToggleFavorite: (state, action) => {
-            state.products.forEach((product) => {
-                if(product.id === action.payload){
-                    product.isFavorite = !product.isFavorite
-                }
-            })
+        setLoadingWithoutDelay: (state, action) => {
+            state.isLoading = action.payload
+        },
+        setLoadingWithDelay: (state, action) => {
+            state.isLoading = action.payload
         },
         setDeleteProduct: (state, action) => {
             return{
                 ...state,
                 cart: state.cart.filter((product) => product.id !== action.payload)
             }
+        },
+        setToggleFavorite: (state, action) => {
+            state.products.forEach((product) => {
+                if(product.id === action.payload){
+                    product.isFavorite = !product.isFavorite
+                }
+            })
         },
         setIncrementQuantity: (state, action) => {
             state.cart = state.cart.map((product) => {
@@ -59,16 +65,17 @@ const productsSlice = createSlice({
             state.cart = state.cart.map((product) => {
                 return product.id === action.payload ? {...product, quantity: product.quantity > 1 ? --product.quantity : 1} : product
             })
+        },
+        setClearCart: (state) => {
+            state.cart = []
         }
     },
     extraReducers: (builder) => {
         builder
         .addCase(fetchProduct.pending, (state) => {
             state.products = []
-            state.isLoading = true
         })
         .addCase(fetchProduct.fulfilled, (state, action) => {
-            state.isLoading = false
             action.payload.map((product) => {
                 if(product.title && product.price){
                     state.products.push(productSettings(product))
@@ -82,7 +89,7 @@ const productsSlice = createSlice({
     }
 })
 
-export const { setAddProduct, setDeleteProduct, setToggleFavorite, setIncrementQuantity, setDecrementQuantity } = productsSlice.actions
+export const { setAddProduct, setDeleteProduct, setToggleFavorite, setIncrementQuantity, setDecrementQuantity, setLoadingWithDelay, setLoadingWithoutDelay, setClearCart } = productsSlice.actions
 
 export const selectProducts = (state) => state.products.products
 export const selectIsLoading = (state) => state.products.isLoading

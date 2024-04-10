@@ -1,7 +1,6 @@
+import { Link } from "react-router-dom";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { images } from "../../modules/images"
-import BreadCrumbs from "../breadcrumbs/BreadCrumbs"
-import Product from "../product/Product"
 import CustomSelect from "../select/CustomSelect";
 import PriceRangeFilter from "../pricefilter/PriceRangeFilter";
 import ProductList from "../productList/ProductList";
@@ -15,7 +14,18 @@ const Shop = () => {
 
   return (
     <>
-    <BreadCrumbs />
+    <div className="ps-hero bg--cover" data-background={images.hero}>
+        <div className="ps-hero__container">
+          <div className="ps-breadcrumb">
+            <ul className="breadcrumb">
+              <li><Link to='/'>Home</Link></li>
+              <IoIosArrowForward />
+              <li>Shop</li>
+            </ul>
+          </div>
+          <h1 className="ps-hero__heading">Shop</h1>
+        </div>
+    </div>
     <div className="ps-page--shop">
       <div className="container">
         <div className="ps-shopping">

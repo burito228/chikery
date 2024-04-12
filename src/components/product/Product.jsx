@@ -1,11 +1,14 @@
 import { MdOutlineFavoriteBorder} from "react-icons/md";
 import { FaSpinner } from 'react-icons/fa'
 import { selectIsLoading, selectProducts, setAddProduct, setLoadingWithDelay, setLoadingWithoutDelay, setToggleFavorite } from "../../redux/slices/productSlice";
+import { selectPriceFilter ,selectIngridientFilter } from "../../redux/slices/filterSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 const Product = () => {
 
     const products = useSelector(selectProducts)
+    const priceFilter = useSelector(selectPriceFilter)
+    const ingredientFilter = useSelector(selectIngridientFilter)
     let IsLoading = useSelector(selectIsLoading)
     const dispatch = useDispatch()
 
@@ -19,9 +22,16 @@ const Product = () => {
         }, 2000)
     }
 
+    const filteredProducts = products.filter((product) => {
+        const matchesIngridient = product.ingridient.includes(ingredientFilter)
+        return matchesIngridient
+    }) 
+
+    
+
   return (
     <>
-        {products.map((product) => (
+        {filteredProducts.map((product) => (
             <div className="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-6" key={product.id}>
                 <div className="ps-product">
                     <div className="ps-product__thumbnail">

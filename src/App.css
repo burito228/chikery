@@ -6149,6 +6149,10 @@ textarea.form-control {
   text-transform: uppercase;
   margin-bottom: 30px; }
 
+.ps-form--checkout{
+  display: flex;
+  justify-content: space-between;
+}
 .ps-form--checkout .form-control {
   border: none;
   height: 45px;
@@ -7286,7 +7290,6 @@ textarea.form-control {
       .ps-shopping-cart .ps-section__footer .ps-shopping-cart__coupon input {
         max-width: 300px; }
     .ps-shopping-cart .ps-section__footer .ps-shopping-cart__total {
-      margin-left: auto;
       margin-right: 0; }
   @media (max-width: 479px) {
     .ps-shopping-cart .ps-section__actions {
@@ -10421,6 +10424,7 @@ html .bg--parallax {
      transform: rotate(360deg);
   }
 }
+
 /*Bootstrap*/
 
 /*!

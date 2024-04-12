@@ -1,16 +1,24 @@
 import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux'
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { images } from "../../modules/images"
 import CustomSelect from "../select/CustomSelect";
 import PriceRangeFilter from "../pricefilter/PriceRangeFilter";
 import ProductList from "../productList/ProductList";
+import { setIngridientFilter } from "../../redux/slices/filterSlice";
 
 const Shop = () => {
+
+  const dispatch = useDispatch()
 
   const handlePriceFilterChange = (value) => {
     console.log('Selected price range:', value);
     // Додайте свою логіку фільтрації тут
   };
+
+  const handleToggleIngridientFilterChange = () => {
+    dispatch(setIngridientFilter())
+  }
 
   return (
     <>
@@ -48,7 +56,7 @@ const Shop = () => {
               <h3 className="widget-title">Ingredient</h3>
               <div className="ps-checkbox ps-checkbox--circle">
                 <input className="form-control" type="checkbox" id="ingredient-1" name="ingredient"/>
-                <label htmlFor="ingredient-1">Sugar</label>
+                <label htmlFor="ingredient-1" onClick={handleToggleIngridientFilterChange}>Sugar</label>
               </div>
               <div className="ps-checkbox ps-checkbox--circle">
                 <input className="form-control" type="checkbox" id="ingredient-2" name="ingredient"/>

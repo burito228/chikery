@@ -1,9 +1,9 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { selectCart, setDecrementQuantity, setDeleteProduct, setIncrementQuantity, setClearCart } from "../../redux/slices/productSlice"
+import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom"
 import {images} from '../../modules/images'
 import { IoIosArrowForward } from "react-icons/io";
-import { useState } from 'react';
 
 
 const Cart = () => {
@@ -28,17 +28,34 @@ const Cart = () => {
   }
 
   const [total, setTotal] = useState(subTotal)
+  const [shippingAdded, setShippingAdded] = useState(false)
 
   const handleShippingRate = () => {
-    if(subTotal === 0){
-      return subTotal
-    }else{
-      return setTotal(prevTotal => prevTotal + 50)
+    if(!shippingAdded){
+      if(total !== 0){
+        setTotal(prevTotal => prevTotal + 50);
+      }
+      setShippingAdded(true);
     }
   }
+  
   const handleShippingFreeCountry = () => {
-    setTotal(subTotal)
+    if(shippingAdded){
+      if(total !== 0){
+        setTotal(prevTotal => prevTotal - 50);
+      }
+      setShippingAdded(false);
+    }
   }
+
+  useEffect(() => {
+    if (shippingAdded) {
+      setTotal(subTotal + 50);
+    } else {
+      setTotal(subTotal);
+    }
+  }, [subTotal, shippingAdded]);
+  
 
 
   return (
@@ -105,34 +122,79 @@ const Cart = () => {
               <figure><Link className="ps-btn" to='/shop'>Continue Shopping</Link></figure>
             </div>
             <div className="ps-section__footer">
-              <figure className="ps-shopping-cart__total">
-                <figcaption>Cart Total</figcaption>
-                <table className="table">
-                  <tbody>
-                    <tr>
-                      <td>SubTotal</td>
-                      <td><strong>${subTotal.toFixed(2)}</strong></td>
-                    </tr>
-                    <tr>
-                      <td>Shipping</td>
-                      <td>
-                        <div className="ps-radio">
-                          <input className="form-control" type="radio" id="shipping-1" name="shipping" />
-                          <label htmlFor="shipping-1" onClick={handleShippingRate}>Flat Rate: $50.00 </label>
-                        </div>
-                        <div className="ps-radio">
-                          <input className="form-control" type="radio" id="shipping-2" name="shipping"/>
-                          <label htmlFor="shipping-2" onClick={handleShippingFreeCountry}>Free Shipping Estimate for Vietnam. </label>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr className="total">
-                      <td>Total</td>
-                      <td>${subTotal === 0 ? (0).toFixed(2) : parseInt(total).toFixed(2)}</td>
-                    </tr>
-                  </tbody>
-                </table><a className="ps-btn ps-btn--fullwidth" href="#">Proceed to checkout</a>
-              </figure>
+              <form className="ps-form--checkout" method="post" data-select2-id="11">
+                <div className="ps-checkout__left">
+                  <h4>Billing Detail</h4>
+                  <div className="row">
+                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
+                      <div className="form-group">
+                        <label>First Name</label>
+                        <input className="form-control" type="text" placeholder="" required/>
+                      </div>
+                    </div>
+                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
+                      <div className="form-group">
+                        <label>Last Name</label>
+                        <input className="form-control" type="text" placeholder="" required/>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="form-group">
+                    <label>Address</label>
+                    <input className="form-control" type="text" placeholder="" required/>
+                  </div>
+                  <div className="form-group">
+                    <label>Country/States</label>
+                    <input className="form-control" type="text" placeholder="" required/>
+                  </div>
+                  <div className="form-group">
+                    <label>City/Town</label>
+                    <input className="form-control" type="text" placeholder="" required />
+                  </div>
+                  <div className="row">
+                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
+                      <div className="form-group">
+                        <label>Email</label>
+                        <input className="form-control" type="text" placeholder="" required/>
+                      </div>
+                    </div>
+                    <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
+                      <div className="form-group">
+                        <label>Phone</label>
+                        <input className="form-control" type="text" placeholder="" required/>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <figure className="ps-shopping-cart__total">
+                  <figcaption>Cart Total</figcaption>
+                  <table className="table">
+                    <tbody>
+                      <tr>
+                        <td>SubTotal</td>
+                        <td><strong>${subTotal.toFixed(2)}</strong></td>
+                      </tr>
+                      <tr>
+                        <td>Shipping</td>
+                        <td>
+                          <div className="ps-radio">
+                            <input className="form-control" type="radio" id="shipping-1" name="shipping" required/>
+                            <label htmlFor="shipping-1" onClick={handleShippingRate}>Flat Rate: $50.00 </label>
+                          </div>
+                          <div className="ps-radio">
+                            <input className="form-control" type="radio" id="shipping-2" name="shipping" required/>
+                            <label htmlFor="shipping-2" onClick={handleShippingFreeCountry}>Free Shipping Estimate for Vietnam. </label>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr className="total">
+                        <td>Total</td>
+                        <td>${total === 0 ? (0).toFixed(2) : parseInt(total).toFixed(2)}</td>
+                      </tr>
+                    </tbody>
+                  </table><button type='submit' className="ps-btn ps-btn--fullwidth">Proceed to checkout</button>
+                </figure>
+              </form>
             </div>
           </div>
         </div>

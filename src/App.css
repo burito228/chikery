@@ -3655,6 +3655,36 @@ textarea.form-control {
     background-repeat: no-repeat;
     background-size: cover; }
 
+    .ps-product--sidebar .ps-product__thumbnail .ps-badge {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .ps-product--sidebar .ps-badge {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      width: 30px;
+      height: 30px; }
+      .ps-product--sidebar .ps-badge i {
+        font-size: 12px;
+        color: #ffffff;
+        font-style: normal; }
+      .ps-product--sidebar .ps-badge--sale {
+        background-image: url("./img/bg/bagde-sale.png");
+        background-repeat: no-repeat;
+        background-size: cover; }
+      .ps-product--sidebar .ps-badge--new {
+        background-image: url("./img/bg/badge-new.png");
+        background-repeat: no-repeat;
+        background-size: cover; }
+
 .ps-product .ps-product__title {
   font-weight: 700;
   color: #000;
@@ -3673,7 +3703,8 @@ textarea.form-control {
   text-transform: uppercase; }
   .ps-product .ps-product__price.sale del {
     color: #555;
-    font-size: 20px; }
+    font-size: 20px;
+  }
 
 .ps-product .ps-product__thumbnail .ps-badge {
   position: absolute;
@@ -4007,7 +4038,13 @@ textarea.form-control {
 .ps-product--sidebar {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  margin-bottom: 15px;
+}
+.ps-product--sidebar:last-of-type {
+  margin-bottom:0;
+}
+
   .ps-product--sidebar .ps-product__title {
     display: block;
     margin-bottom: 10px;
@@ -4017,9 +4054,13 @@ textarea.form-control {
   .ps-product--sidebar .ps-product__thumbnail {
     max-width: 100px; }
   .ps-product--sidebar .ps-product__price {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     color: #ce873a; }
+    .ps-product--sidebar .ps-product__price.sale del{
+      color: #555;
+      font-size: 18px;
+      margin-right: 10px; }
   .ps-product--sidebar .ps-product__content {
     padding-left: 20px; }
     .ps-product--sidebar .ps-product__content p {

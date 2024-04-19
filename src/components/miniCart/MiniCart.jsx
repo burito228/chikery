@@ -23,8 +23,7 @@ const MiniCart = () => {
                 </div>
                 <div className="ps-cart__footer">
                   <h3>Sub Total:<strong>${cart.reduce((total, product) => {
-                    return total + product.quantity * parseInt(product.salesPrice)
-                  }, 0)}</strong></h3>
+                    return total + product.quantity * parseInt(`${product.sales ? product.salesPrice : product.price}`)}, 0).toFixed(2)}</strong></h3>
                   <figure><Link className="ps-btn" to='cart'>View Cart</Link></figure>
                 </div>
               </div>

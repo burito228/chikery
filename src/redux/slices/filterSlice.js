@@ -1,8 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-    price: 0,
-    ingridient: '',
+    price: [],
+    ingridient: [],
+    categories: [],
+    order: ''
     // onlyFavorite: false,
 }
 
@@ -14,7 +16,13 @@ const filterSlice = createSlice({
             return {...state, price: action.payload}
         },
         setIngridientFilter: (state, action) => {
-            return {...state, ingridient: 'sugar' }
+            return {...state, ingridient: action.payload }
+        },
+        setCategoryFilter: (state, action) => {
+            return {...state, categories: action.payload }
+        },
+        setDisplayOrder: (state, action) => {
+            return {...state, order: action.payload}
         },
         // setOnlyFavoriteFilter: (state) => {
         //     return {...state, onlyFavorite: !state.onlyFavorite}
@@ -25,10 +33,12 @@ const filterSlice = createSlice({
     }
 })
 
-export const { setPriceFilter, setIngridientFilter, resetFilters } = filterSlice.actions
+export const { setPriceFilter, setIngridientFilter, resetFilters, setCategoryFilter, setDisplayOrder } = filterSlice.actions
 
 export const selectPriceFilter = (state) => state.filter.price
+export const selectCategoryFilter = (state) => state.filter.categories
 export const selectIngridientFilter = (state) => state.filter.ingridient
+export const selectDisplayOrder = (state) => state.filter.order
 
 // export const selectOnlyFavoriteFilter = (state) => state.filter.onlyFavorite
 

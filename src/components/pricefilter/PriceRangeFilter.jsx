@@ -14,7 +14,7 @@ const PriceRangeFilter = ({ onChange }) => {
       <Range
         step={1}
         min={0}
-        max={1000} // Максимальне значення ціни
+        max={100} // Максимальне значення ціни
         values={priceRange}
         onChange={handlePriceChange}
         renderTrack={({ props, children }) => (

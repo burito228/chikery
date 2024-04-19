@@ -1,17 +1,23 @@
 import { MdOutlineFavoriteBorder} from "react-icons/md";
 import { FaSpinner } from 'react-icons/fa'
-import { selectIsLoading, selectProducts, setAddProduct, setLoadingWithDelay, setLoadingWithoutDelay, setToggleFavorite } from "../../redux/slices/productSlice";
-import { selectPriceFilter ,selectIngridientFilter } from "../../redux/slices/filterSlice";
+import { selectIsLoading, selectProducts, setAddProduct, setCountShow, setLoadingWithDelay, setLoadingWithoutDelay, setToggleFavorite } from "../../redux/slices/productSlice";
+import { selectPriceFilter ,selectIngridientFilter, selectCategoryFilter, selectDisplayOrder } from "../../redux/slices/filterSlice";
 import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useMemo } from "react";
 
 const Product = () => {
 
+    
     const products = useSelector(selectProducts)
-    const priceFilter = useSelector(selectPriceFilter)
-    const ingredientFilter = useSelector(selectIngridientFilter)
     let IsLoading = useSelector(selectIsLoading)
-    const dispatch = useDispatch()
 
+    const priceFilter = useSelector(selectPriceFilter)
+    const categoryFilter = useSelector(selectCategoryFilter)
+    const ingredientFilter = useSelector(selectIngridientFilter)
+    const displayOrder = useSelector(selectDisplayOrder)
+
+    const dispatch = useDispatch()
+    
     const handleAddProduct = (id) => {
         dispatch(setLoadingWithoutDelay(true))
         setTimeout(()=> {
@@ -21,14 +27,68 @@ const Product = () => {
             dispatch(setLoadingWithDelay(false))
         }, 2000)
     }
-
-    const filteredProducts = products.filter((product) => {
-        const matchesIngridient = product.ingridient.includes(ingredientFilter)
-        return matchesIngridient
-    }) 
-
     
 
+    const sortedProducts = useMemo(() => {
+        let sorted = [...products];
+    
+        if(displayOrder.value === 'lower'){
+            sorted.sort((a,b) => a.price - b.price)
+        }
+        if(displayOrder.value === 'higher'){
+            sorted.sort((a,b) => b.price - a.price)
+        }
+    
+        return sorted;
+    }, [products, displayOrder]);
+    
+    
+    const matchPriceRange = (product, priceFilter) => {
+        const price = product.salesPrice ? product.salesPrice : product.price;
+        const regularPrice = product.price;
+        return (price >= priceFilter[0] && price <= priceFilter[1]) || (regularPrice >= priceFilter[0] && regularPrice <= priceFilter[1]);
+    };
+    
+    const matchIngredient = (product, ingredientFilter) => {
+        return product.ingridient.some((i) => ingredientFilter.includes(i));
+    };
+    
+    const matchCategory = (product, categoryFilter) => {
+        return product.category.some((c) => categoryFilter.includes(c))
+    };
+
+    const filteredProducts = sortedProducts.filter((product) => {
+        let matchesPrice = true;
+        let matchesIngredient = true;
+        let matchesCategory = true;
+        let matchesDisplayOrder = true;
+        
+        
+        if(priceFilter.length > 0){
+            matchesPrice = matchPriceRange(product, priceFilter);
+        }
+        
+        if (ingredientFilter.length > 0) {
+            matchesIngredient = matchIngredient(product, ingredientFilter);
+        } 
+        
+        if(categoryFilter.length > 0) {
+            matchesCategory = matchCategory(product, categoryFilter)
+        }
+        
+        return matchesPrice && matchesIngredient && matchesCategory && matchesDisplayOrder;
+    });
+
+    
+    
+    useEffect(() => {
+
+        const productLenght = filteredProducts.length
+        dispatch(setCountShow(productLenght))
+
+    }, [filteredProducts, dispatch])
+
+    
   return (
     <>
         {filteredProducts.map((product) => (

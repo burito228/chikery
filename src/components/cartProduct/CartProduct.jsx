@@ -20,7 +20,9 @@ const CartProduct = () => {
                 <div className="ps-product__content">
                     <span onClick={()=> handleDeleteProduct(product.id)} className="ps-btn--close"></span><a className="ps-product__title" href="product.html">{product.title}</a>
                     <p><strong>Quantity: {product.quantity}</strong></p>
-                        <small>${product.salesPrice}</small>
+                    <small>
+                        ${product.sales ? parseInt(product.salesPrice).toFixed(2) : product.price.toFixed(2)}
+                    </small>
                 </div>
             </div>
         ))}

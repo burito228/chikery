@@ -98,7 +98,7 @@ const Cart = () => {
                           <div className="ps-product__content"><a className="ps-product__title" href="product-detail.html">{product.title}</a></div>
                         </div>
                       </td>
-                      <td>${product.salesPrice}</td>
+                      <td>${product.sales ? parseInt(product.salesPrice).toFixed(2) : product.price.toFixed(2)}</td>
                       <td>
                         <div className="form-group--number">
                           <button className="up" onClick={() => handleChangeCountToHigher(product.id)}></button>
@@ -106,7 +106,7 @@ const Cart = () => {
                           <input className="form-control" type="text" readOnly value={product.quantity} />
                         </div>
                       </td>
-                      <td className="total">${product.quantity * product.salesPrice}</td>
+                      <td className="total">${product.quantity * `${product.sales ? parseInt(product.salesPrice) : product.price}`}.00</td>
                       <td className="ps-table__actions"><span onClick={()=> handleDeleteProduct(product.id)} className="ps-btn--close"></span></td>
                     </tr>
                   ))}

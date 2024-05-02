@@ -3705,6 +3705,19 @@ textarea.form-control {
     color: #555;
     font-size: 20px;
   }
+  .ps-product--banner .ps-product__price {
+    display: flex;
+    margin-bottom: 30px;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #ce873a;
+    line-height: 1.4em;
+    text-transform: uppercase; }
+    .ps-product--banner .ps-product__price.sale del {
+      color: #555;
+      font-size: 20px;
+    }
 
 .ps-product .ps-product__thumbnail .ps-badge {
   position: absolute;
@@ -4993,6 +5006,9 @@ textarea.form-control {
     color: #ce873a;
     font-weight: 600;
     text-transform: uppercase; }
+  .ReactModal__Overlay{
+    z-index: 1001;
+  }
   .ps-product--banner .ps-product__content .ps-product__title {
     display: block;
     font-size: 60px;
@@ -5000,7 +5016,7 @@ textarea.form-control {
     line-height: 1.2em;
     color: #000; }
   .ps-product--banner .ps-product__content p {
-    margin-bottom: 30px;
+    margin-bottom: 6px;
     font-size: 24px; }
   .ps-product--banner.horizontal {
     display: block;
@@ -5561,11 +5577,14 @@ textarea.form-control {
   -o-align-items: center;
   align-items: center;
   -ms-flex-align: center; }
+  .ReactModal__Content{
+    inset: 140px !important;
+    padding: unset !important;
+  }
   .ps-popup__content {
+    text-align: center;
     position: relative;
-    max-width: 830px;
     width: 100%;
-    padding: 67px 40px;
     -webkit-transition: tranform 0.4s ease;
     -moz-transition: tranform 0.4s ease;
     -o-transition: tranform 0.4s ease;
@@ -5903,7 +5922,16 @@ textarea.form-control {
     border: 1px solid #707070; }
     .ps-form--footer-subscribe .form-group--inside input:focus {
       border-color: #fff; }
-
+.ps-form__content h2{
+  margin-bottom: 20px;
+}
+.ps-popup__content{
+  background: url('./img/bg/subcribe.jpg');
+}
+.ps-popup__content .form-group{
+  margin-bottom: 0;
+  margin-top: 60px;
+}
 .ps-form--book-your-table .form-control {
   border: none;
   padding: 0;
@@ -7628,7 +7656,7 @@ textarea.form-control {
 #homepage-2 .ps-home-banner {
   position: relative;
   z-index: 10;
-  height: 65vh;
+  height: 100vh;
   background: url("./img/bg/home/home-banner.jpg");
 }
 
@@ -8837,7 +8865,7 @@ textarea.form-control {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 10000;
+  z-index: 1000;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;

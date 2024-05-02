@@ -1,16 +1,42 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { selectCart, setDecrementQuantity, setDeleteProduct, setIncrementQuantity, setClearCart } from "../../redux/slices/productSlice"
 import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import Modal from 'react-modal'
 import { Link } from "react-router-dom"
+import { selectCart, setDecrementQuantity, setDeleteProduct, setIncrementQuantity, setClearCart } from "../../redux/slices/productSlice"
 import {images} from '../../modules/images'
 import { IoIosArrowForward } from "react-icons/io";
+import { selectFirstName, setFirstName } from '../../redux/slices/dataSlice';
 
+Modal.setAppElement('#root')
 
 const Cart = () => {
 
   const cart = useSelector(selectCart)
-  const subTotal = cart.reduce((sum, product) => sum + product.quantity * product.salesPrice, 0);
   const dispatch = useDispatch()
+
+  const subTotal = cart.reduce((sum, product) => sum + product.quantity * product.salesPrice || sum + product.quantity * product.price, 0);
+  
+  const [total, setTotal] = useState(subTotal)
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [shippingAdded, setShippingAdded] = useState(false)
+
+  const firstName = useSelector(selectFirstName)
+  
+  const handleChangeFirstName = (e) => {
+    dispatch(setFirstName(e.target.value))
+  }
+
+  const handleOpenModal = () => {
+    if(cart.length !== 0 && total !== 0 && firstName !== ''){
+      setModalIsOpen(true);
+    }else{
+      return setModalIsOpen(false)
+    }
+  }
+  const handleCloseModal = () => {
+    setModalIsOpen(false);
+    dispatch(setClearCart())
+  }
 
   const handleDeleteProduct = (id) => {
     dispatch(setDeleteProduct(id))
@@ -27,13 +53,12 @@ const Cart = () => {
       dispatch(setClearCart())
   }
 
-  const [total, setTotal] = useState(subTotal)
-  const [shippingAdded, setShippingAdded] = useState(false)
-
   const handleShippingRate = () => {
     if(!shippingAdded){
       if(total !== 0){
         setTotal(prevTotal => prevTotal + 50);
+      }else{
+        return total
       }
       setShippingAdded(true);
     }
@@ -129,7 +154,7 @@ const Cart = () => {
                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
                       <div className="form-group">
                         <label>First Name</label>
-                        <input className="form-control" type="text" placeholder="" required/>
+                        <input value={firstName} onChange={handleChangeFirstName} className="form-control" type="text" placeholder="" required/>
                       </div>
                     </div>
                     <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
@@ -144,11 +169,11 @@ const Cart = () => {
                     <input className="form-control" type="text" placeholder="" required/>
                   </div>
                   <div className="form-group">
-                    <label>Country/States</label>
+                    <label>Country</label>
                     <input className="form-control" type="text" placeholder="" required/>
                   </div>
                   <div className="form-group">
-                    <label>City/Town</label>
+                    <label>City</label>
                     <input className="form-control" type="text" placeholder="" required />
                   </div>
                   <div className="row">
@@ -192,12 +217,31 @@ const Cart = () => {
                         <td>${total === 0 ? (0).toFixed(2) : parseInt(total).toFixed(2)}</td>
                       </tr>
                     </tbody>
-                  </table><button type='submit' className="ps-btn ps-btn--fullwidth">Proceed to checkout</button>
+                  </table><button type='button' className="ps-btn ps-btn--fullwidth" onClick={handleOpenModal}>Proceed to checkout</button>
                 </figure>
               </form>
             </div>
           </div>
         </div>
+      </div>
+      <div>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={handleCloseModal}
+        contentLabel="Example Modal"
+      >
+        <div className="ps-popup__content bg--cover">
+          <button className="ps-popup__close ps-btn--close" onClick={handleCloseModal}></button>
+          <div className="ps-form__content">
+            <h2>Thank you for your order!</h2>
+            <p>Your order has been successfully placed and is currently being processed. You will receive the details of the order in your email.</p>
+            <p>We really appreciate you choosing our store. If you have any questions or need assistance, please contact us.</p>
+            <div className="form-group">
+              <Link to='/shop' className="ps-btn" onClick={handleClearCart}>CONTINUE SHOPPING</Link>
+            </div>
+          </div>
+        </div>
+      </Modal>
       </div>
     </>
   )

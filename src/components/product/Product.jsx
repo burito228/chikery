@@ -1,6 +1,6 @@
 import { MdOutlineFavoriteBorder} from "react-icons/md";
 import { FaSpinner } from 'react-icons/fa'
-import { selectIsLoading, selectProducts, setAddProduct, setCountShow, setLoadingWithDelay, setLoadingWithoutDelay, setToggleFavorite } from "../../redux/slices/productSlice";
+import { selectIsLoading, selectProducts, setAddProduct, setCountShow, setLoadingWithDelay, setLoadingWithoutDelay } from "../../redux/slices/productSlice";
 import { selectPriceFilter ,selectIngridientFilter, selectCategoryFilter, selectDisplayOrder } from "../../redux/slices/filterSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useMemo } from "react";

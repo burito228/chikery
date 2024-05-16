@@ -12,7 +12,7 @@ const MiniCart = () => {
 
   return (
     <div className="ps-cart--mini">
-              <Link to='cart' className="ps-cart__toggle"><TiShoppingCart /><span><i>{cart.length}</i></span></Link>
+              <Link to='cart' className="ps-cart__toggle"><TiShoppingCart style={{color:'black'}}/><span><i>{cart.length}</i></span></Link>
               <div className="ps-cart__content">
                 <div className="ps-cart__items">
                 {cart.length === 0 ? (<p style={{textAlign: 'center', marginBottom: '15px'}}>No products available</p>) : (

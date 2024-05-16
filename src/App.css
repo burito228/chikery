@@ -8846,6 +8846,10 @@ textarea.form-control {
 .sticky__active{
   position: relative;
   z-index: 999;
+  opacity: 1 !important;
+}
+.sticky-outer-wrapper{
+  opacity: 0;
 }
 .unactive-position{
   position: fixed;
@@ -9402,6 +9406,8 @@ textarea.form-control {
   background-color: #ce873a; }
   .navigation--list .navigation__item {
     text-align: center;
+    background-color: unset;
+    border: none;
     width: 36px;
     height: 36px;
     display: -webkit-box;
@@ -9414,16 +9420,18 @@ textarea.form-control {
     -ms-flex-align: center;
     align-items: center;
     border-radius: 50px; }
-    .navigation--list .navigation__item i {
+    .navigation--list .navigation__item svg {
       font-size: 20px;
       color: #ffffff; }
+      .navigation--list .navigation__item button:focus {
+        outline: none; }
     .navigation--list .navigation__item span {
       display: block; }
     .navigation--list .navigation__item.active {
       background-color: #fff; }
-      .navigation--list .navigation__item.active i {
-        color: #ce873a;
-        font-size: 18px; }
+      .navigation--list .navigation__item.active svg {
+        color: #ce873a !important;
+        font-size: 20px; }
       .navigation--list .navigation__item.active span {
         color: #ce873a; }
   .navigation--list .navigation__content {

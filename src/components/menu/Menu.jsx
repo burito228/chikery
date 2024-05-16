@@ -19,10 +19,10 @@ const Menu = () => {
                     <ul className="breadcrumb">
                     <li><Link to='/'>Home</Link></li>
                     <IoIosArrowForward />
-                    <li>Menu</li>
+                    <li>Special Category</li>
                     </ul>
                 </div>
-                <h1 className="ps-hero__heading">Menu</h1>
+                <h1 className="ps-hero__heading">Special Category</h1>
                 </div>
             </div>
             <div className="ps-section ps-home-special-categories bg--cover" data-background={images.specialcake}>

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { GoClockFill } from "react-icons/go";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { images } from "../../modules/images";
 import Sticky from 'react-stickynode';
 import MiniCart from "../miniCart/MiniCart";
@@ -19,7 +20,7 @@ function Header() {
                 <Link to='/'>Home</Link>
               </li>
               <li className="menu-item-has-children">
-                <Link to='shop'>Shop</Link>
+                <Link to='menu'>Special Category</Link>
               </li>
             </ul>
           </nav>
@@ -31,10 +32,10 @@ function Header() {
           <nav className="header__navigation right">
             <ul className="menu">
               <li className="current-menu-item menu-item-has-children">
-                <Link to={'about'}>About</Link>
+                <Link to={'shop'}>Shop</Link>
               </li>
               <li className="current-menu-item menu-item-has-children">
-                <Link to={'menu'}>Menu</Link>
+                <Link to={'about'}>About</Link>
               </li>
             </ul>
           </nav>
@@ -47,10 +48,12 @@ function Header() {
       </header>
       <header className="header header--mobile" data-sticky="false">
         <div className="header__content">
-          <div className="header__left"><a className="ps-toggle--sidebar" href="#navigation-mobile"><i className="fa fa-bars"></i></a></div>
-          <div className="header__center"><a className="ps-logo" href="index.html"><img src={images.logo} alt=''/></a></div>
+          <div className="header__left">
+            <button type="button" style={{border: 'none'}} className="ps-toggle--sidebar"><RxHamburgerMenu style={{ width: '30px', height: '30px'}} /></button>
+          </div>
+          <div className="header__center"><Link className="ps-logo" to='/'><img src={images.logo} alt=''/></Link></div>
           <div className="header__right">
-            <div className="header__actions"><a href="whishlist.html"><i className="fa fa-heart-o"></i></a></div>
+            <div className="header__actions"><MiniCart /></div>
           </div>
         </div>
       </header>
@@ -66,7 +69,7 @@ function Header() {
                   <Link to='/'>Home</Link>
                 </li>
                 <li className="menu-item-has-children">
-                  <Link to='shop'>Shop</Link>
+                  <Link to='menu'>Special Category</Link>
                 </li>
               </ul>
             </nav>
@@ -78,10 +81,10 @@ function Header() {
             <nav className="header__navigation right">
               <ul className="menu">
                 <li className="current-menu-item menu-item-has-children">
-                  <Link to='about'>About</Link>
+                  <Link to='shop'>Shop</Link>
                 </li>
                 <li className="current-menu-item menu-item-has-children">
-                  <Link to='menu'>Menu</Link>
+                  <Link to='about'>About</Link>
                 </li>
               </ul>
             </nav>
@@ -91,15 +94,6 @@ function Header() {
               <MiniCart />
             </div>
           </div>
-        </header>
-        <header className="header header--mobile" data-sticky="false">
-        <div className="header__content">
-          <div className="header__left"><a className="ps-toggle--sidebar" href="#navigation-mobile"><i className="fa fa-bars"></i></a></div>
-          <div className="header__center"><a className="ps-logo" href="index.html"><img src={images.logo} alt=''/></a></div>
-          <div className="header__right">
-            <div className="header__actions"></div>
-          </div>
-        </div>
         </header>
       </Sticky>
       </>

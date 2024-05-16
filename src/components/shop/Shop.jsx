@@ -129,7 +129,7 @@ const Shop = () => {
                   <div className="ps-product__content">
                     <a className="ps-product__title" href="#">{product.title}</a>
                     <p>
-                      <span>350g</span><span>30 Min</span><span>120 <sup>o</sup>C</span></p>
+                      <span>{product.weight}g</span></p>
                       {product.sales ? (
                         <span className="ps-product__price sale">
                           <del>${product.price}</del>

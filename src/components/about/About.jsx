@@ -32,7 +32,7 @@ const About = () => {
                     <p>1990 - 2010</p>
                   </div>
                   <div className="ps-block__content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed turpis feugiat, mollis felis vel, viverra metus.</p>
+                    <p>Indulge in excellence! For two decades, we've proudly crafted moments of bliss with our delectable creations. From the first bite to the last crumb, our passion for baking shines through in every pastry, making us the epitome of culinary mastery.</p>
                   </div>
                 </div>
               </div>
@@ -43,7 +43,7 @@ const About = () => {
                     <p>2012 - 2018</p>
                   </div>
                   <div className="ps-block__content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed turpis feugiat, mollis felis vel, viverra metus.</p>
+                    <p>Savor the sweetness of success! Our journey to the top has been sprinkled with love and frosted with dedication. With each delightful cupcake, we've shared a taste of joy, earning us the esteemed title of Cupcakes Shop of the Year for seven consecutive years.</p>
                   </div>
                 </div>
               </div>
@@ -54,7 +54,7 @@ const About = () => {
                     <p>2012 - 2018</p>
                   </div>
                   <div className="ps-block__content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed turpis feugiat, mollis felis vel, viverra metus.</p>
+                    <p>Rising to the occasion! At the Awards Bakery Academy, we've blended innovation with tradition to shape the future of baking. From artisanal techniques to cutting-edge recipes, our commitment to excellence knows no bounds, garnering recognition and admiration from peers and patrons alike.</p>
                   </div>
                 </div>
               </div>
@@ -71,7 +71,7 @@ const About = () => {
                 <h3>Chikery Cake History</h3>
               </div>
               <div className="ps-section__content">
-                <p>“ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed turpis feugiat, mollis felis vel, viverra metus. Sed vel nulla non neque dictum imperdiet hendrerit ”</p>
+                <p>“ Witness the legacy unfold! With every Chikery Cake, we invite you to taste the journey of generations. From cherished family recipes to innovative confections, each slice carries the essence of our heritage and the promise of memorable moments. Join us as we continue to write the sweetest chapters of history, one delectable creation at a time. ”</p>
                 <div className="ps-section__image"><img src={images.sign} alt=""></img></div>
                 <h5><span>Marry Lulie</span> - Ceo Chikery</h5>
               </div>
@@ -91,7 +91,7 @@ const About = () => {
               <h3>Best Services</h3><i className="chikery-tt3"></i>
             </div>
             <div className="ps-section__content">
-              <p>Consectetur adipiscing elit. Curabitur sed turpis feugiat, sed vel nulla non neque. Nullamlacinia faucibus risus, a euismod lorem tincidunt id. Vestibulum imperdiet nibh vel magna lacinia ultricesimperdiet.</p>
+              <p>Experience excellence in every bite! At Chikery Cake, we blend passion with precision to create moments of pure delight. From the finest ingredients to expert craftsmanship, each cake embodies our commitment to quality and satisfaction. Whether it's a special event or a casual indulgence, trust us for the perfect treat every time.</p>
               <ul>
                 <li>BEST QUALITY</li>
                 <li>FAST DELIVERED</li>
@@ -116,7 +116,7 @@ const About = () => {
               <div className="ps-block__right">
                 <h4>Jont Henrry</h4>
                 <h5>Chef, Co - accfounder</h5>
-                <p>Sed id interdum urna. Nam ac elit a ante commodo tristique. Duis lacus urna, condimentum a vehicula a, hendrerit ac nisi Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed turpis feugiat, mollis felis vel, viverra metus. Sed vel nulla non neque dictum imperdiet. Aliquam egestas hendrerit euismod.</p>
+                <p>Welcome to our culinary journey! With a passion for perfection, we craft each dish to tantalize your taste buds and ignite your senses. From innovative flavors to classic favorites, every creation is a celebration of artistry and flavor. Join us as we embark on a gastronomic adventure, where every bite tells a story of inspiration and indulgence.</p>
                 <div className="ps-block__images">
                   <img src={images.hero1} alt=""></img>
                   <img src={images.hero2} alt=""></img>

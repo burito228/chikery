@@ -20,7 +20,7 @@ function Footer(){
                     </div>
                     <div className="ps-footer__center">
                     <div className="ps-site-info"><Link className="ps-logo" to='/'><img src={images.logo} alt=''></img></Link>
-                        <p>004 Riley Street, Surry Hills 2050 Sydney, Australia</p>
+                        <a href="https://maps.app.goo.gl/69wiTkkF42Ln9SvG9">ТОВ "НіжинХліб"</a>
 
                     </div>
                     </div>

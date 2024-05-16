@@ -107,9 +107,7 @@ const Product = () => {
                         <div className="ps-product__desc">
                             <h3 className="ps-product__title">{product.title}</h3>
                             <p>
-                                <span>350g</span>
-                                <span>30 Min</span>
-                                <span>120 <sup>o</sup>C</span>
+                                <span>{product.weight}g</span>
                             </p>
                             {product.sales ? (
                                 <span className="ps-product__price sale">
@@ -128,9 +126,6 @@ const Product = () => {
                                     <FaSpinner className="spinner" />
                                 </>) : 'Add to cart'}
                             </button>
-                            <div className="ps-product__actions">
-                                <button type="button"><MdOutlineFavoriteBorder className="wish-btn"/></button>
-                            </div>
                         </div>
                     </div>
                 </div>

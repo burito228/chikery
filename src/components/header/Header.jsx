@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { GoClockFill } from "react-icons/go";
-import { MdOutlineFavoriteBorder} from "react-icons/md";
 import { images } from "../../modules/images";
 import Sticky from 'react-stickynode';
 import MiniCart from "../miniCart/MiniCart";
@@ -34,12 +33,14 @@ function Header() {
               <li className="current-menu-item menu-item-has-children">
                 <Link to={'about'}>About</Link>
               </li>
+              <li className="current-menu-item menu-item-has-children">
+                <Link to={'menu'}>Menu</Link>
+              </li>
             </ul>
           </nav>
         </div>
         <div className="header__right">
           <div className="header__actions">
-            <a href="whishlist.html"><MdOutlineFavoriteBorder /></a>
             <MiniCart />
           </div>
         </div>
@@ -77,14 +78,16 @@ function Header() {
             <nav className="header__navigation right">
               <ul className="menu">
                 <li className="current-menu-item menu-item-has-children">
-                  <Link to={'about'}>About</Link>
+                  <Link to='about'>About</Link>
+                </li>
+                <li className="current-menu-item menu-item-has-children">
+                  <Link to='menu'>Menu</Link>
                 </li>
               </ul>
             </nav>
           </div>
           <div className="header__right">
             <div className="header__actions">
-              <a href="whishlist.html"><MdOutlineFavoriteBorder /></a>
               <MiniCart />
             </div>
           </div>
@@ -94,7 +97,7 @@ function Header() {
           <div className="header__left"><a className="ps-toggle--sidebar" href="#navigation-mobile"><i className="fa fa-bars"></i></a></div>
           <div className="header__center"><a className="ps-logo" href="index.html"><img src={images.logo} alt=''/></a></div>
           <div className="header__right">
-            <div className="header__actions"><a href="whishlist.html"><i className="fa fa-heart-o"></i></a></div>
+            <div className="header__actions"></div>
           </div>
         </div>
         </header>

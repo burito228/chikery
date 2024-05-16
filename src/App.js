@@ -9,6 +9,8 @@ import Cart from './components/cart/Cart'
 import NotFound from './components/not-found/NotFound'
 import MainLayout from './layouts/MainLayout';
 import './App.css';
+import Menu from './components/menu/Menu';
+import Checkout from './components/checkout/Checkout';
 
 
 function App() {
@@ -17,7 +19,7 @@ function App() {
 
     useEffect(()=> {
         dispatch(fetchProduct('https://660efcb9356b87a55c50a062.mockapi.io/chikery/Product'))
-    }, [])
+    }, [dispatch])
 
   return (
     <BrowserRouter>
@@ -26,7 +28,9 @@ function App() {
           <Route index element={<Main />}/>
           <Route path='shop' element={<Shop />}/>
           <Route path='about' element={<About />}/>
+          <Route path='menu' element={<Menu />}/>
           <Route path='cart' element={<Cart />}/>
+          <Route path='checkout' element={<Checkout />}/>
           <Route path='*' element={<NotFound />}/>
         </Route>
       </Routes>

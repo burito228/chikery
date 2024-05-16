@@ -3732,7 +3732,6 @@ textarea.form-control {
     margin-bottom: 0;
     font-weight: 600; }
     .ps-product .ps-product__content p span {
-      margin-right: 16px;
       color: #555; }
   .ps-product .ps-product__content .ps-product__desc {
     -webkit-transition: all .4s ease;
@@ -3749,7 +3748,7 @@ textarea.form-control {
 .ps-product .ps-product__shopping {
   position: absolute;
   top: 0;
-  left: 50%;
+  left: 60%;
   width: 100%;
   max-width: 220px;
   text-align: center;
@@ -5127,14 +5126,13 @@ textarea.form-control {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  min-height: 480px; }
+  min-height: 410px; }
   .ps-hero__heading {
     font-family: "Corben", serif; 
     font-size: 48px;
     color: #000;
     margin-bottom: 0; }
   .ps-hero__container {
-    padding-top: 55px;
     text-align: center; }
   .ps-hero.bg--cover {
     background-position: 50% 100% !important; }
@@ -5147,7 +5145,7 @@ textarea.form-control {
       padding-top: 0; } }
   @media (min-width: 1200px) {
     .ps-hero__container {
-      padding-top: 100px; } }
+       } }
 
 .ps-hero--blog {
   position: relative;
@@ -6220,9 +6218,10 @@ textarea.form-control {
 
 .ps-form--checkout{
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
 }
 .ps-form--checkout .form-control {
+  font-size: 20px;
   border: none;
   height: 45px;
   border-radius: 50px;
@@ -7656,7 +7655,7 @@ textarea.form-control {
 #homepage-2 .ps-home-banner {
   position: relative;
   z-index: 10;
-  height: 100vh;
+  height: 75vh;
   background: url("./img/bg/home/home-banner.jpg");
 }
 
@@ -7707,7 +7706,8 @@ textarea.form-control {
   @media (max-width: 479px) {
     #homepage-2 .ps-home-about {
       padding: 50px 0; } }
-
+.ps-home-product {
+  padding: 120px 0; }
 #homepage-2 .ps-home-product {
   padding: 120px 0; }
   #homepage-2 .ps-home-product .ps-product {
@@ -8947,7 +8947,7 @@ textarea.form-control {
     .header--default .header__left p {
       margin-bottom: 0;
       font-weight: 500;
-      font-size: 18px;
+      font-size: 16px;
       color: #000; }
       .header--default .header__left p i {
         margin-right: 10px; }
@@ -9512,7 +9512,9 @@ textarea.form-control {
   padding: 10px 20px; }
 
 .ps-site-info {
-  text-align: center; }
+  text-align: center;
+display: flex;
+flex-direction: column; }
   .ps-site-info .ps-logo {
     display: inline-block;
     margin-bottom: 25px; }

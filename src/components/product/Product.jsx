@@ -96,7 +96,7 @@ const Product = () => {
                 <div className="ps-product">
                     <div className="ps-product__thumbnail">
                         <img src={product.img} alt='product' />
-                        <a className="ps-product__overlay" href="product.html"></a>
+                        <button className="ps-product__overlay" ></button>
                         {product.sales ? (
                             <span className="ps-badge ps-badge--sale">
                                 <i>{product.sales}%</i>

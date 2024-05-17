@@ -1,23 +1,27 @@
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import CartProduct from "../cartProduct/CartProduct";
+import { setActiveMobileBtn, selectActiveMobileBtn, selectCart } from "../../redux/slices/productSlice";
 import { FaHome } from "react-icons/fa";
 import { TiShoppingCart } from "react-icons/ti";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { useState } from "react";
 
 
 
 function Navigation(){
 
-  const [activeMobileBtn, setActiveMobileBtn] = useState(0)
+  const menuActive = useSelector(selectActiveMobileBtn)
+  const dispatch = useDispatch()
+  const cart = useSelector(selectCart)
 
   const handleActiveChanger = (i) => {
-    setActiveMobileBtn(activeMobileBtn === i ? null : i)
+    dispatch(setActiveMobileBtn(menuActive === i ? null : i))
   }
 
     return(
         <>  
-            <div className={`ps-site-overlay ${activeMobileBtn === 1 || activeMobileBtn === 2 ? 'active' : ''}`} onClick={() => handleActiveChanger(0)}></div>
-            <div className={`ps-panel--sidebar ${activeMobileBtn === 2 ? 'active' : ''}`} id="cart-mobile">
+            <div className={`ps-site-overlay ${menuActive === 1 || menuActive === 2 ? 'active' : ''}`} onClick={() => handleActiveChanger(0)}></div>
+            <div className={`ps-panel--sidebar ${menuActive === 2 ? 'active' : ''}`} id="cart-mobile">
               <div className="ps-panel__header">
                 <h3>Shopping Cart</h3>
               </div>
@@ -25,49 +29,36 @@ function Navigation(){
                 <div className="ps-cart--mobile">
                   <div className="ps-cart__content">
                     <div className="ps-cart__items">
-                      <div className="ps-product--mini-cart">
-                        <div className="ps-product__thumbnail"><a href="#"><img src="" alt=''/></a></div>
-                        <div className="ps-product__content"><span className="ps-btn--close"></span><a className="ps-product__title" href="product.html">Jean Woman Summer</a>
-                          <p><strong>Quantity: 1</strong></p><small>$12.00</small>
+                    {cart.length === 0 ? (<p style={{textAlign: 'center', marginBottom: '15px'}}>No products available</p>) : (
+                        <div className="row">
+                            <CartProduct />
                         </div>
-                      </div>
-                      <div className="ps-product--mini-cart">
-                        <div className="ps-product__thumbnail"><a href="#"><img src="" alt=''/></a></div>
-                        <div className="ps-product__content"><span className="ps-btn--close"></span><a className="ps-product__title" href="product.html">Jean Woman Summer</a>
-                          <p><strong>Quantity: 1</strong></p><small>$12.00</small>
-                        </div>
-                      </div>
+                    )}
                     </div>
                     <div className="ps-cart__footer">
-                      <h3>Sub Total:<strong>$48.00</strong></h3>
-                      <figure><a className="ps-btn" href="cart.html">View Cart</a><a className="ps-btn ps-btn--dark" href="checkout.html">Checkout</a></figure>
+                      <h3>Sub Total:<strong>${cart.reduce((total, product) => {
+                        return total + product.quantity * parseInt(`${product.sales ? product.salesPrice : product.price}`)}, 0).toFixed(2)}</strong></h3>
+                      <figure><Link className="ps-btn" to='cart'>View Cart</Link></figure>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className={`ps-panel--sidebar ${activeMobileBtn === 1 ? 'active' : ''}`} id="navigation-mobile">
+            <div className={`ps-panel--sidebar ${menuActive === 1 ? 'active' : ''}`} id="navigation-mobile">
                 <div className="ps-panel__header">
                 <h3>Menu</h3>
                 </div>
                 <div className="ps-panel__content">
                 <ul className="menu--mobile">
-                    <li className="current-menu-item"><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="about-us.html">About</a></li>
-                    <li className="current-menu-item menu-item-has-children"><a href="about-us.html">Pages</a><span className="sub-toggle"></span>
-                    <ul className="sub-menu">
-                        <li><a href="about-us.html">About</a>
-                        </li>
-                        <li><a href="whishlist.html">Whishlist</a>
-                        </li>
-                    </ul>
-                    </li>
+                    <li className="current-menu-item"><Link to='/'>Home</Link></li>
+                    <li><Link to='menu'>Special Category</Link></li>
+                    <li><Link to='shop'>Shop</Link></li>
+                    <li className="current-menu-item menu-item-has-children"><Link to='about'>About</Link></li>
                 </ul>
                 </div>
             </div>
             <div className="navigation--list">
-                <div className="navigation__content"><Link className={`navigation__item ${activeMobileBtn === 0 ? 'active' : ''}`} onClick={() => handleActiveChanger(0)} to='/'><FaHome /></Link><button type="button" className={`navigation__item ps-toggle--sidebar ${activeMobileBtn === 1 ? 'active' : ''}`} onClick={() => handleActiveChanger(1)}><RxHamburgerMenu style={{color:'white'}}/></button><button type="button" className={`navigation__item ps-toggle--sidebar ${activeMobileBtn === 2 ? 'active' : ''}`} onClick={() => handleActiveChanger(2)}><TiShoppingCart style={{color:'white'}}/></button></div>
+                <div className="navigation__content"><Link className={`navigation__item ${menuActive === 0 ? 'active' : ''}`} onClick={() => handleActiveChanger(0)} to='/'><FaHome /></Link><button type="button" className={`navigation__item ps-toggle--sidebar ${menuActive === 1 ? 'active' : ''}`} onClick={() => handleActiveChanger(1)}><RxHamburgerMenu style={{color:'white'}}/></button><button type="button" className={`navigation__item ps-toggle--sidebar ${menuActive === 2 ? 'active' : ''}`} onClick={() => handleActiveChanger(2)}><TiShoppingCart style={{color:'white'}}/></button></div>
             </div>
         </>
     )

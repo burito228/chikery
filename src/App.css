@@ -3624,11 +3624,16 @@ textarea.form-control {
 
 .ps-product__overlay {
   position: absolute;
+  border: none;
+  background: unset;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 10; }
+  z-index: 10;
+  outline: none !important;
+}
+
 
 .ps-product .ps-badge {
   display: -webkit-box;
@@ -4303,6 +4308,9 @@ textarea.form-control {
     .ps-product--detail .ps-product__variants .item:hover img {
       width: 100%;
       opacity: 1; }
+      .slick-arrow{
+        display: none !important;
+      }
   .ps-product--detail .ps-product__gallery {
     position: relative; }
     .ps-product--detail .ps-product__gallery .slick-arrow {
@@ -7017,8 +7025,10 @@ textarea.form-control {
           margin-right: 0; }
         .ps-shopping .ps-shopping__top figure a.active i {
           color: #000; }
-  .ps-shopping .ps-shopping__left {
-    max-width: 290px; }
+          @media (max-width: 991px) {.ps-shopping .ps-shopping__left {
+    max-width: 100%;
+    text-align: center;
+  }}
   .ps-shopping .ps-shopping__right {
     padding-left: 80px; }
   .ps-shopping--no-sidebar {
@@ -8654,7 +8664,9 @@ textarea.form-control {
   .menu--mobile .sub-menu > li > a {
     border: none;
     padding: 10px 20px; }
-
+.ps-cart--mobile .row{
+  margin: 0;
+}
 .menu--mobile > li {
   border-bottom: 1px solid #dedede; }
   .menu--mobile > li > a {
@@ -8662,12 +8674,13 @@ textarea.form-control {
     z-index: 10;
     display: block;
     padding: 15px 20px;
+    color: #000 ;
     line-height: 20px;
     font-weight: 600;
     font-size: 20px; }
     .menu--mobile > li > a:hover {
       padding-left: 5px;
-      color: #000; }
+      color: #ce873a; }
   .menu--mobile > li.menu-item-has-children {
     position: relative; }
     .menu--mobile > li.menu-item-has-children .sub-toggle {

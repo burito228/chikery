@@ -1,12 +1,22 @@
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Sticky from 'react-stickynode';
+import { setActiveMobileBtn, selectActiveMobileBtn } from "../../redux/slices/productSlice";
 import { GoClockFill } from "react-icons/go";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { images } from "../../modules/images";
-import Sticky from 'react-stickynode';
 import MiniCart from "../miniCart/MiniCart";
 
 
 function Header() {
+
+  const menuActive = useSelector(selectActiveMobileBtn)
+  const dispatch = useDispatch()
+
+  const handleActiveChanger = (i) => {
+    dispatch(setActiveMobileBtn(menuActive === i ? null : i))
+  }
+
     return (
       <>
       <header className="header header--default" data-sticky="true">
@@ -49,7 +59,7 @@ function Header() {
       <header className="header header--mobile" data-sticky="false">
         <div className="header__content">
           <div className="header__left">
-            <button type="button" style={{border: 'none'}} className="ps-toggle--sidebar"><RxHamburgerMenu style={{ width: '30px', height: '30px'}} /></button>
+            <button type="button" style={{border: 'none'}} className="ps-toggle--sidebar" onClick={() => handleActiveChanger(1)}><RxHamburgerMenu style={{ width: '30px', height: '30px'}} /></button>
           </div>
           <div className="header__center"><Link className="ps-logo" to='/'><img src={images.logo} alt=''/></Link></div>
           <div className="header__right">

@@ -7,6 +7,7 @@ const initialState = {
     cart: [],
     isLoading: false,
     countShow: 0,
+    navigation: 0
 }
 
 export const fetchProduct = createAsyncThunk(
@@ -43,6 +44,9 @@ const productsSlice = createSlice({
         },
         setLoadingWithDelay: (state, action) => {
             state.isLoading = action.payload
+        },
+        setActiveMobileBtn: (state, action) => {
+            state.navigation = action.payload
         },
         setDeleteProduct: (state, action) => {
             return{
@@ -93,11 +97,12 @@ const productsSlice = createSlice({
     }
 })
 
-export const { setAddProduct, setDeleteProduct, setToggleFavorite, setIncrementQuantity, setDecrementQuantity, setLoadingWithDelay, setLoadingWithoutDelay, setCountShow, setClearCart } = productsSlice.actions
+export const { setAddProduct, setDeleteProduct, setToggleFavorite, setIncrementQuantity, setDecrementQuantity, setLoadingWithDelay, setLoadingWithoutDelay, setCountShow, setClearCart, setActiveMobileBtn } = productsSlice.actions
 
 export const selectProducts = (state) => state.products.products
 export const selectIsLoading = (state) => state.products.isLoading
 export const selectCountShow = (state) => state.products.countShow
 export const selectCart = (state) => state.products.cart
+export const selectActiveMobileBtn = (state) => state.products.navigation
 
 export default productsSlice.reducer

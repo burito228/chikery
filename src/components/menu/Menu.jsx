@@ -73,7 +73,7 @@ const Menu = () => {
                             </div>
                             </div>
                         </div>
-                        <div className="ps-section__footer text-center"><Link to='shop' className="ps-btn ps-btn--outline">All Products</Link></div>
+                        <div className="ps-section__footer text-center"><Link to='/shop' className="ps-btn ps-btn--outline">All Products</Link></div>
                         </div>
             </div>
             <div className="ps-section ps-home-product">

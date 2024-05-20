@@ -38,7 +38,7 @@ function Navigation(){
                     <div className="ps-cart__footer">
                       <h3>Sub Total:<strong>${cart.reduce((total, product) => {
                         return total + product.quantity * parseInt(`${product.sales ? product.salesPrice : product.price}`)}, 0).toFixed(2)}</strong></h3>
-                      <figure><Link className="ps-btn" to='cart'>View Cart</Link></figure>
+                      <figure><Link className="ps-btn" to='cart' onClick={() => handleActiveChanger(0)}>View Cart</Link></figure>
                     </div>
                   </div>
                 </div>
@@ -50,10 +50,10 @@ function Navigation(){
                 </div>
                 <div className="ps-panel__content">
                 <ul className="menu--mobile">
-                    <li className="current-menu-item"><Link to='/'>Home</Link></li>
-                    <li><Link to='menu'>Special Category</Link></li>
-                    <li><Link to='shop'>Shop</Link></li>
-                    <li className="current-menu-item menu-item-has-children"><Link to='about'>About</Link></li>
+                    <li className="current-menu-item"><Link to='/' onClick={() => handleActiveChanger(0)}>Home</Link></li>
+                    <li><Link to='menu' onClick={() => handleActiveChanger(0)}>Special Category</Link></li>
+                    <li><Link to='shop' onClick={() => handleActiveChanger(0)}>Shop</Link></li>
+                    <li className="current-menu-item menu-item-has-children"><Link to='about' onClick={() => handleActiveChanger(0)}>About</Link></li>
                 </ul>
                 </div>
             </div>
